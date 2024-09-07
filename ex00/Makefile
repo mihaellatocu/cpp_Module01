@@ -1,24 +1,26 @@
 NAME = zombie
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-RM = rm -f
+RM = rm -rf
 
 SRC = newZombie.cpp randomChump.cpp Zombie.cpp main.cpp
-OBJ = $(SRC:.cpp =.o)
+OBJ_F = ./obj
+OBJ = $(SRC:%.cpp=$(OBJ_F)/%.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC)  $(CFLAGS) $(OBJ) -o $(NAME)  
 
-%.o: %.cpp
+$(OBJ_F)/%.o: %.cpp
+	mkdir -p $(OBJ_F)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJ_F)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) 
 
 re: fclean all
 
