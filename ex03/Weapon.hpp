@@ -5,12 +5,11 @@
 
 class Weapon
 {
-    private:
-        std::string type;
+private:
+    std::string type;
 
-    public:
-        std::string getType();
+public:
+    const std::string &getType() const; // if is const (de 2 ori) I am passing as ref
 
-        void setType(std::string new_type);
-   
+    void setType(std::string new_type);
 };
