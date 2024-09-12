@@ -1,6 +1,6 @@
 NAME = attack
 CC = c++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = HumanA.cpp main.cpp Weapon.cpp HumanB.cpp
 OBJ_F = ./obj
 OBJ = $(SRC:%.cpp=$(OBJ_F)/%.o)
