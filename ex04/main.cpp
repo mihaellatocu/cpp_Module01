@@ -4,7 +4,7 @@
 
 std::string new_line(std::string line, std::string s1, std::string s2)
 {
-    int poz = 0;
+    size_t poz = 0;
     std::string result= "";
     while ((poz = line.find(s1, poz)) != std::string::npos)
     {
@@ -30,13 +30,13 @@ int main(int ac, char* argv[])
     std::string s2 = argv[3];
     std::string filename = argv[1];
     
-    std::ifstream MyFile(filename); // open file
+    std::ifstream MyFile(filename.c_str()); // open file
     if (!MyFile.is_open())
     {
         std::cerr <<"The file cannot be opened\n";
         return (1);
     }
-    std::ofstream outputFile(filename + ".replace"); // create new file
+    std::ofstream outputFile((filename + ".replace").c_str()); // create new file
     if (!outputFile.is_open())
     {
         std::cerr << "The file cannot be opened\n";
